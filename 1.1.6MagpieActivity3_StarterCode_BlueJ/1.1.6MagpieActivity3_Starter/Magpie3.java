@@ -140,7 +140,20 @@ public class Magpie3
      */
     private int findKeyword(String statement, String goal)
     {
-        return findKeyword(statement, goal, 0);
+        // PLTW 1.1.6 Part C start
+
+        statement.replaceAll("\\p{Punct}", "");
+        statement.toLowerCase();
+        String[] Words = statement.split(" ");
+        for (String w : Words){
+        if (w.equals(goal)){
+        return statement.indexOf(goal);
+        }    
+        }
+        
+        return -1;
+        // PLTW 1.1.6 Part End
+
     }
 
     /**
